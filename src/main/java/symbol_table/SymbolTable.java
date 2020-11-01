@@ -1,3 +1,5 @@
+package symbol_table;
+
 public class SymbolTable {
 
     private final double c1 = 0.5;
@@ -35,7 +37,7 @@ public class SymbolTable {
         }
     }
 
-    int add(String key) {
+    public int add(String key) {
         if ((double) size / capacity > 0.7) {
             resize();
         }
@@ -102,4 +104,15 @@ public class SymbolTable {
         return (int) (hashKey(key) + c1 * index + c2 * index * index) % capacity;
     }
 
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Symbol Table\n");
+        stringBuilder.append("Symbol\tIndex\n");
+        for(int i=0;i<elements.length;i++){
+            if(elements[i]!=null){
+                stringBuilder.append(elements[i]+"\t" + i + "\n");
+            }
+        }
+        return stringBuilder.toString();
+    }
 }
