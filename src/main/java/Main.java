@@ -19,7 +19,7 @@ public class Main {
 //        String fileName = scanner.nextLine();
         int lineNumber = 0;
         String line;
-        Scanner fileScanner = new Scanner(new BufferedInputStream(new FileInputStream("src/main/resources/P3")));
+        Scanner fileScanner = new Scanner(new BufferedInputStream(new FileInputStream("src/main/resources/P1err")));
         while (fileScanner.hasNextLine()) {
             line = fileScanner.nextLine();
             lineNumber++;

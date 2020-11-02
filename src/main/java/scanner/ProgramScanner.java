@@ -52,7 +52,6 @@ public class ProgramScanner {
             if (line.charAt(index) == '"') {
                 if (token.length() != 0) {
                     tokens.add(token.toString());
-                    //                    break
                 }
                 Map.Entry<String, Integer> tokenInteger = getStringToken(line, index);
                 tokens.add(tokenInteger.getKey());
@@ -61,13 +60,11 @@ public class ProgramScanner {
             } else if (isPartOfOperator(line.substring(index, index + 1))) {
                 if (token.length() != 0) {
                     tokens.add(token.toString());
-                    //                    break;
                 }
                 Map.Entry<String,Integer> tokenIndex = getOperatorToken(line, index);
                 tokens.add(tokenIndex.getKey());
                 index = tokenIndex.getValue();
                 token = new StringBuilder();
-                //                break;
             } else if (LanguageSpecification.separators.contains(line.substring(index, index + 1))) {
                 if (token.length() != 0) {
                     tokens.add(token.toString());
@@ -75,7 +72,6 @@ public class ProgramScanner {
                 tokens.add(line.substring(index, index + 1));
                 index += 1;
                 token = new StringBuilder();
-                //                break;
             } else {
                 token.append(line.charAt(index));
                 index++;

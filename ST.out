@@ -1,6 +1,6 @@
 Symbol Table
-#Implemented using a hash table, the collision resolution being open addressing with quadratic probing0	0
-100	1
-suma	6
-i	9
-numere	12
+#Implemented using a hash table, the collision resolution being open addressing with quadratic probing
+0	0
+erori	1
+text	5
+"abcdegijfkl"	10
