@@ -1,0 +1,9 @@
+contact () {
+    VIN a = "mercedes c class" ;
+    rulaj ( piston i = 0 ; i < length ( a ); i ++) {
+        daca ( a [ i ] este 'e') {
+            a[i] = 'x';
+        }
+    }
+    arata ( a ) ;
+}

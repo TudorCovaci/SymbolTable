@@ -1,6 +1,7 @@
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import language_spec.LanguageSpecification;
@@ -10,7 +11,7 @@ import symbol_table.SymbolTable;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         SymbolTable symbolTable = new SymbolTable();
         Pif pif = new Pif();
         Scanner scanner = new Scanner(System.in);
@@ -18,7 +19,7 @@ public class Main {
 //        String fileName = scanner.nextLine();
         int lineNumber = 0;
         String line;
-        Scanner fileScanner = new Scanner(new BufferedInputStream(new FileInputStream("src/main/resources/testProgram")));
+        Scanner fileScanner = new Scanner(new BufferedInputStream(new FileInputStream("src/main/resources/P3")));
         while (fileScanner.hasNextLine()) {
             line = fileScanner.nextLine();
             lineNumber++;
@@ -31,12 +32,12 @@ public class Main {
                 } else if (ProgramScanner.isConstant(token)) {
                     pif.add(token, symbolTable.add(token));
                 } else {
-                    throw new RuntimeException("Syntax error on line " + lineNumber + " ( token: " + token + ")");
+                    throw new RuntimeException("Syntax error on line " + lineNumber + " (token:" + token + ")");
                 }
             }
         }
         System.out.println("Syntax is correct");
-        System.out.println(pif);
-        System.out.println(symbolTable);
+        pif.writeToFile();
+        symbolTable.writeToFile();
     }
 }

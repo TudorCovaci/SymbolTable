@@ -1,5 +1,10 @@
 package symbol_table;
 
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class SymbolTable {
 
     private final double c1 = 0.5;
@@ -107,12 +112,19 @@ public class SymbolTable {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Symbol Table\n");
-        stringBuilder.append("Symbol\tIndex\n");
+        stringBuilder.append("#Implemented using a hash table, the collision resolution being open addressing with quadratic probing\n");
         for(int i=0;i<elements.length;i++){
             if(elements[i]!=null){
                 stringBuilder.append(elements[i]+"\t" + i + "\n");
             }
         }
         return stringBuilder.toString();
+    }
+
+    public void writeToFile() throws IOException {
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream("ST.out"));
+        bufferedOutputStream.write(toString().getBytes());
+        bufferedOutputStream.flush();
+        bufferedOutputStream.close();
     }
 }

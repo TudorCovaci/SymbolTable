@@ -1,0 +1,10 @@
+contact () {
+    piston x = 48;
+    piston y = 196;
+    catTimp (y nu este 0 ){
+        piston z = y;
+        y = x $ y ;
+        x = z;
+    }
+    arata (x);
+}

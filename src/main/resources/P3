@@ -1,0 +1,9 @@
+contact() {
+    serie#piston# numere[100];
+    piston suma = 0;
+    rulaj (piston i = 0; i < 100; i++){
+        numere[i] = citeste(piston);
+        suma += numere[i];
+    }
+    arata(suma);
+}
