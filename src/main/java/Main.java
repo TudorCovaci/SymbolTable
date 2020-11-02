@@ -19,7 +19,7 @@ public class Main {
 //        String fileName = scanner.nextLine();
         int lineNumber = 0;
         String line;
-        Scanner fileScanner = new Scanner(new BufferedInputStream(new FileInputStream("src/main/resources/P1err")));
+        Scanner fileScanner = new Scanner(new BufferedInputStream(new FileInputStream("src/main/resources/P3")));
         while (fileScanner.hasNextLine()) {
             line = fileScanner.nextLine();
             lineNumber++;
@@ -32,11 +32,11 @@ public class Main {
                 } else if (ProgramScanner.isConstant(token)) {
                     pif.add(token, symbolTable.add(token));
                 } else {
-                    throw new RuntimeException("Syntax error on line " + lineNumber + " (token:" + token + ")");
+                    throw new RuntimeException("Lexical error on line " + lineNumber + " (token:" + token + ")");
                 }
             }
         }
-        System.out.println("Syntax is correct");
+        System.out.println("Lexical correct");
         pif.writeToFile();
         symbolTable.writeToFile();
     }
