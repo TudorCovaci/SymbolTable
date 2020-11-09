@@ -1,0 +1,63 @@
+{
+  "states": [
+    {
+      "identifier": "p"
+    },
+    {
+      "identifier": "q"
+    },
+    {
+      "identifier": "r"
+    }
+  ],
+  "alphabet": [
+    "a",
+    "b"
+  ],
+  "initial_state": {
+    "identifier": "p"
+  },
+  "transitions": [
+    {
+      "state": {
+        "identifier": "p"
+      },
+      "letter": "a",
+      "result": {
+        "identifier": "q"
+      }
+    },
+    {
+      "state": {
+        "identifier": "q"
+      },
+      "letter": "a",
+      "result": {
+        "identifier": "q"
+      }
+    },
+    {
+      "state": {
+        "identifier": "q"
+      },
+      "letter": "b",
+      "result": {
+        "identifier": "r"
+      }
+    },
+    {
+      "state": {
+        "identifier": "p"
+      },
+      "letter": "b",
+      "result": {
+        "identifier": "r"
+      }
+    }
+  ],
+  "final_states": [
+    {
+      "identifier": "r"
+    }
+  ]
+}
