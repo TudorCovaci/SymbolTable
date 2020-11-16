@@ -11,8 +11,8 @@
     }
   ],
   "alphabet": [
-    "a",
-    "b"
+    "0",
+    "1"
   ],
   "initial_state": {
     "identifier": "p"
@@ -22,42 +22,41 @@
       "state": {
         "identifier": "p"
       },
-      "letter": "a",
-      "result": {
+      "letter": "0",
+      "results": [{
         "identifier": "q"
-      }
+      }]
     },
     {
       "state": {
         "identifier": "q"
       },
-      "letter": "a",
-      "result": {
+      "letter": "0",
+      "results": [{
         "identifier": "q"
-      }
+      }]
     },
     {
       "state": {
         "identifier": "q"
       },
-      "letter": "b",
-      "result": {
+      "letter": "1",
+      "results": [{
         "identifier": "r"
-      }
+      }]
     },
     {
       "state": {
         "identifier": "p"
       },
-      "letter": "b",
-      "result": {
+      "letter": "1",
+      "results": [{
         "identifier": "r"
-      }
+      }]
     }
   ],
   "final_states": [
     {
-      "identifier": "r"
-    }
+      "identifier": "r"    }
   ]
 }

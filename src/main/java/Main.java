@@ -51,6 +51,8 @@ public class Main {
                 }
                 case 4 -> System.out.println("Final states: " + finiteAutomata.getFinalStates()
                                                                           .toString());
+                case 5 -> System.out.println("DFA?: " + finiteAutomata.isDeterministic());
+                case 6-> System.out.println(readAndCheckSequence(finiteAutomata));
                 case 0 -> {
                     return;
                 }
@@ -59,12 +61,20 @@ public class Main {
         }
     }
 
+    private static boolean readAndCheckSequence(FiniteAutomata fa){
+        System.out.println("Input sequence: ");
+        Scanner scanner = new Scanner(System.in);
+        String sequence = scanner.nextLine().strip();
+        return fa.checkSequence(sequence);
+    }
     private static void printMenu() {
         String stringBuilder = "Menu\n"
                 + "1. Display set of states\n"
                 + "2. Display alphabet\n"
                 + "3. Display transitions\n"
                 + "4. Display final states\n"
+                + "5. Check if DFA\n"
+                + "6. Check sequence\n"
                 + "0. Quit\n"
                 + "Input choice: ";
         System.out.println(stringBuilder);

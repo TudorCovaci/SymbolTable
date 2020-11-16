@@ -2,7 +2,6 @@ package finite_automata;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serial;
 import java.util.List;
 
 public class FiniteAutomata {
@@ -71,5 +70,34 @@ public class FiniteAutomata {
 
     public void setFinalStates(List<State> finalStates) {
         this.finalStates = finalStates;
+    }
+
+    public boolean isDeterministic(){
+        return transitions.stream()
+                          .filter(t -> t.getResultStates()
+                                        .size() > 1)
+                          .count() <= 0;
+    }
+
+    public boolean checkSequence(String seq){
+        State state = this.initialState;
+        String[] sequenceChars = seq.split("");
+        for(String character: sequenceChars){
+            State nextState = getNextState(state, character);
+            if(nextState == null){
+                return false;
+            }
+            state = nextState;
+        }
+        return this.finalStates.contains(state);
+    }
+
+    public State getNextState(State startingState, String value){
+        for(Transition t: transitions){
+            if(t.getState().equals(startingState) && t.getLetter().equals(value) && t.getResultStates().size() == 1){
+                return t.getResultStates().get(0);
+            }
+        }
+        return null;
     }
 }

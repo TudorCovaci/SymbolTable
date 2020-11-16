@@ -1,20 +1,25 @@
 package finite_automata;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class Transition {
 
     private State state;
     private String letter;
-    private State result;
+    @SerializedName("results")
+    private List<State> resultStates;
 
     public Transition() {
     }
 
     public Transition(State state,
                       String letter,
-                      State result) {
+                      List<State> resultStates) {
         this.state = state;
         this.letter = letter;
-        this.result = result;
+        this.resultStates = resultStates;
     }
 
     public State getState() {
@@ -33,16 +38,16 @@ public class Transition {
         this.letter = letter;
     }
 
-    public State getResult() {
-        return result;
+    public List<State> getResultStates() {
+        return resultStates;
     }
 
-    public void setResult(State result) {
-        this.result = result;
+    public void setResultStates(List<State> resultStates) {
+        this.resultStates = resultStates;
     }
 
     @Override
     public String toString(){
-        return "d(" + state.toString() + "," + letter + ")=" + result.toString();
+        return "d(" + state.toString() + "," + letter + ")=" + resultStates.toString();
     }
 }

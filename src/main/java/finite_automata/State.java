@@ -23,4 +23,14 @@ public class State {
     public String toString(){
         return identifier;
     }
+
+    @Override
+    public boolean equals(Object other){
+        if(!(other instanceof State)){
+            return false;
+        }
+
+        State otherState = (State)other;
+        return otherState.identifier.equals(identifier);
+    }
 }
